@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(ProfileController());
+    controller.loadDataFromWebAPI();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Profiles'),
@@ -22,7 +26,15 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView(),
+            child: Obx(
+              () {
+                if (controller.loading.value) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            ),
           ),
         ],
       ),
