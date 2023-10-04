@@ -10,22 +10,7 @@ class HomePage extends StatelessWidget {
         title: Text('Profiles'),
       ),
       // the body contains filter text field and list of profiles
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Filter',
-              ),
-            ),
-          ),
-          Expanded(
-            child: ListView(),
-          ),
-        ],
-      ),
+      body: ListView(),
     );
   }
 }
