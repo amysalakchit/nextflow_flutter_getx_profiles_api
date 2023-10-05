@@ -18,13 +18,13 @@ class ProfileController extends GetxController {
 
     var profileJSONList = response.body;
 
-    var convertedProfileList = List<ProfileModel>.from(
-      profileJSONList.map(
-        (profileJSON) {
-          return ProfileModel.fromMap(profileJSON);
-        },
-      ),
+    var mappedProfileList = profileJSONList.map(
+      (profileJSON) {
+        return ProfileModel.fromMap(profileJSON);
+      },
     );
+
+    var convertedProfileList = List<ProfileModel>.from(mappedProfileList);
 
     profileList = convertedProfileList;
 
