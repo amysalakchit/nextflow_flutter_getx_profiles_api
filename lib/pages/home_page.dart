@@ -15,34 +15,28 @@ class HomePage extends StatelessWidget {
         title: Text('Profiles'),
       ),
       // the body contains filter text field and list of profiles
-      body: Column(
-        children: [
-          Expanded(
-            child: Obx(
-              () {
-                if (controller.loading.value) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
+      body: Obx(
+        () {
+          if (controller.loading.value) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
 
-                return ListView.builder(
-                  itemCount: controller.profileList.length,
-                  itemBuilder: (context, index) {
-                    var profile = controller.profileList[index];
-                    return ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(profile.avatar ?? ''),
-                      ),
-                      title: Text(profile.name ?? ''),
-                      subtitle: Text(profile.phone ?? ''),
-                    );
-                  },
-                );
-              },
-            ),
-          ),
-        ],
+          return ListView.builder(
+            itemCount: controller.profileList.length,
+            itemBuilder: (context, index) {
+              var profile = controller.profileList[index];
+              return ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(profile.avatar ?? ''),
+                ),
+                title: Text(profile.name ?? ''),
+                subtitle: Text(profile.phone ?? ''),
+              );
+            },
+          );
+        },
       ),
     );
   }
