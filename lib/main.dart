@@ -4,7 +4,6 @@ import 'package:get/route_manager.dart';
 import 'package:nextflow_flutter_getx_profiles_api/pages/home_page.dart';
 
 void main() {
-
   Get.lazyPut(() => GetConnect());
   runApp(const MyApp());
 }
