@@ -31,8 +31,8 @@ class HomePage extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
                 leading: CircleAvatar(backgroundImage: NetworkImage(profiles[index].avatar ?? ''),),
-                title: Text(profiles[index].name!, style: TextStyle(color: Colors.pink),),
-                subtitle: Text(profiles[index].phone!),
+                title: Text(profiles[index].name ?? "untitle", style: TextStyle(color: Colors.purple),),
+                subtitle: Text(profiles[index].phone ?? "0000-0000"),
                 onTap: () {
                   print(profiles[index].name);
                   print(profiles[index].phone);
